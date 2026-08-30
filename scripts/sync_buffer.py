@@ -136,7 +136,13 @@ def parse_created_at(value: str) -> datetime:
 
 
 def load_queue(csv_url: str) -> list[dict[str, str]]:
-    response = requests.get(csv_url, timeout=30)
+    separator = "&" if "?" in csv_url else "?"
+    fresh_url = f"{csv_url}{separator}_ts={int(datetime.now(timezone.utc).timestamp())}"
+    response = requests.get(
+        fresh_url,
+        headers={"Cache-Control": "no-cache", "Pragma": "no-cache"},
+        timeout=30,
+    )
     response.raise_for_status()
     return list(csv.DictReader(io.StringIO(response.text)))
 
