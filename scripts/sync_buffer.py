@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""Sync approved posts from posts/posts.json to Buffer for X + Threads.
+"""Publish the newest READY social post from Google Sheets to Buffer.
 
-Safety defaults:
-- config.json starts with dry_run=true.
-- posts are ignored unless enabled=true.
-- only posts within sync_horizon_days are considered.
-- duplicate scheduled posts are skipped.
+The sheet is the queue written by the ChatGPT automation.
+Publishing state is stored in state/social_queue_state.json so the same row is not
+published twice. If one service succeeds and the other fails, the next run retries
+only the failed service.
 """
 
 from __future__ import annotations
 
+import csv
+import io
 import json
 import os
 import sys
@@ -21,11 +22,28 @@ import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 API_URL = "https://api.buffer.com"
+CONFIG_PATH = ROOT / "config.json"
+STATE_PATH = ROOT / "state" / "social_queue_state.json"
+DEFAULT_QUEUE_CSV_URL = (
+    "https://docs.google.com/spreadsheets/d/"
+    "11PBrVIaXUWw00z2cbR5Qgc2wnjqsufVaoncL5eLV9GI/"
+    "export?format=csv&gid=1570221331"
+)
 
 
-def load_json(path: Path) -> Any:
+def load_json(path: Path, default: Any) -> Any:
+    if not path.exists():
+        return default
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def save_json(path: Path, payload: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def gql(api_key: str, query: str, variables: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -50,9 +68,7 @@ def get_organization_id(api_key: str) -> str:
         api_key,
         """
         query AccountOrganizations {
-          account {
-            organizations { id name }
-          }
+          account { organizations { id name } }
         }
         """,
     )
@@ -60,12 +76,11 @@ def get_organization_id(api_key: str) -> str:
     if not orgs:
         raise RuntimeError("No Buffer organization found.")
     if len(orgs) > 1:
-        print(f"Found {len(orgs)} Buffer organizations; using: {orgs[0]['name']} ({orgs[0]['id']})")
+        print(f"Found {len(orgs)} Buffer organizations; using {orgs[0]['name']}.")
     return orgs[0]["id"]
 
 
 def get_channels(api_key: str, organization_id: str) -> list[dict[str, Any]]:
-    # Organization IDs are server-provided opaque IDs; interpolate only this value.
     safe_org = organization_id.replace('"', '\\"')
     data = gql(
         api_key,
@@ -82,29 +97,6 @@ def get_channels(api_key: str, organization_id: str) -> list[dict[str, Any]]:
     return data["channels"]
 
 
-def get_scheduled_posts(api_key: str, organization_id: str) -> list[dict[str, Any]]:
-    safe_org = organization_id.replace('"', '\\"')
-    data = gql(
-        api_key,
-        f"""
-        query ScheduledPosts {{
-          posts(
-            input: {{
-              organizationId: \"{safe_org}\"
-              sort: [{{ field: dueAt, direction: asc }}, {{ field: createdAt, direction: desc }}]
-              filter: {{ status: [scheduled] }}
-            }}
-          ) {{
-            edges {{
-              node {{ id text dueAt channelId status }}
-            }}
-          }}
-        }}
-        """,
-    )
-    return [edge["node"] for edge in data["posts"]["edges"]]
-
-
 def create_scheduled_post(api_key: str, channel_id: str, text: str, due_at: str) -> dict[str, Any]:
     data = gql(
         api_key,
@@ -114,9 +106,7 @@ def create_scheduled_post(api_key: str, channel_id: str, text: str, due_at: str)
             ... on PostActionSuccess {
               post { id text dueAt channelId status }
             }
-            ... on MutationError {
-              message
-            }
+            ... on MutationError { message }
           }
         }
         """,
@@ -137,73 +127,91 @@ def create_scheduled_post(api_key: str, channel_id: str, text: str, due_at: str)
     return result["post"]
 
 
-def parse_utc(value: str) -> datetime:
-    value = value.replace("Z", "+00:00")
+def parse_created_at(value: str) -> datetime:
+    value = value.strip().replace("Z", "+00:00")
     dt = datetime.fromisoformat(value)
     if dt.tzinfo is None:
-        raise ValueError("publish_at must include a timezone, preferably Z/UTC")
+        dt = dt.replace(tzinfo=timezone.utc)
     return dt.astimezone(timezone.utc)
 
 
-def iso_z(dt: datetime) -> str:
-    return dt.astimezone(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
-
-
-def normalize_due(value: str | None) -> str:
-    if not value:
-        return ""
-    return iso_z(parse_utc(value))
+def load_queue(csv_url: str) -> list[dict[str, str]]:
+    response = requests.get(csv_url, timeout=30)
+    response.raise_for_status()
+    return list(csv.DictReader(io.StringIO(response.text)))
 
 
 def main() -> int:
-    config = load_json(ROOT / "config.json")
-    posts = load_json(ROOT / "posts" / "posts.json")
-    dry_run = bool(config.get("dry_run", True))
-    horizon_days = int(config.get("sync_horizon_days", 5))
+    config = load_json(CONFIG_PATH, {})
     wanted_services = set(config.get("services", ["twitter", "threads"]))
+    queue_csv_url = config.get("queue_csv_url", DEFAULT_QUEUE_CSV_URL)
+    max_queue_age_hours = int(config.get("max_queue_age_hours", 8))
+    publish_delay_minutes = int(config.get("publish_delay_minutes", 5))
+
+    unsupported = wanted_services - {"twitter", "threads"}
+    if unsupported:
+        raise RuntimeError(f"Unsupported service(s): {', '.join(sorted(unsupported))}")
+
+    rows = load_queue(queue_csv_url)
+    ready_rows: list[dict[str, str]] = []
+
+    for row in rows:
+        if (row.get("status") or "").strip().upper() != "READY":
+            continue
+        if not (row.get("id") or "").strip():
+            continue
+        try:
+            row["_created_at"] = parse_created_at(row.get("created_at") or "")  # type: ignore[assignment]
+        except Exception as exc:
+            print(f"SKIP invalid queue row {row.get('id')}: bad created_at ({exc})")
+            continue
+        ready_rows.append(row)
+
+    if not ready_rows:
+        print("No READY rows in queue.")
+        return 0
+
+    row = max(ready_rows, key=lambda item: item["_created_at"])  # type: ignore[index]
+    post_id = (row.get("id") or "").strip()
+    created_at = row["_created_at"]  # type: ignore[index]
+
+    age = datetime.now(timezone.utc) - created_at
+    if age > timedelta(hours=max_queue_age_hours):
+        print(
+            f"Newest READY row {post_id} is {age.total_seconds() / 3600:.1f}h old; "
+            "refusing to publish stale content."
+        )
+        return 0
+
+    texts = {
+        "twitter": (row.get("x_text") or "").strip(),
+        "threads": (row.get("threads_text") or "").strip(),
+    }
+
+    for service in wanted_services:
+        if not texts.get(service):
+            raise RuntimeError(f"{post_id}: missing text for {service}")
+
+    if "twitter" in wanted_services and len(texts["twitter"]) > 280:
+        raise RuntimeError(
+            f"{post_id}: X text is {len(texts['twitter'])} characters; refusing to publish over 280."
+        )
 
     api_key = os.getenv("BUFFER_API_KEY", "").strip()
     if not api_key:
-        if dry_run:
-            print("DRY RUN: BUFFER_API_KEY is not set. Validating local content only.")
-        else:
-            print("ERROR: BUFFER_API_KEY is required when dry_run=false.", file=sys.stderr)
-            return 2
+        print("ERROR: BUFFER_API_KEY is required.", file=sys.stderr)
+        return 2
 
-    now = datetime.now(timezone.utc)
-    horizon = now + timedelta(days=horizon_days)
+    state: dict[str, list[str]] = load_json(STATE_PATH, {})
+    done_services = set(state.get(post_id, []))
 
-    candidates: list[dict[str, Any]] = []
-    for post in posts:
-        if not post.get("enabled", False):
-            continue
-        when = parse_utc(post["publish_at"])
-        if now <= when <= horizon:
-            candidates.append({**post, "_when": when})
-
-    if not candidates:
-        print(f"Nothing to sync in the next {horizon_days} day(s).")
-        return 0
-
-    # Local-only validation works without an API key.
-    for post in candidates:
-        if post.get("x") and len(post["x"]) > 280:
-            print(f"WARNING {post['id']}: X text is {len(post['x'])} chars; check account limits.")
-        if not post.get("x") and not post.get("threads"):
-            raise ValueError(f"{post['id']}: at least one of x/threads is required")
-
-    if dry_run:
-        for post in candidates:
-            print(f"DRY RUN {post['id']} @ {iso_z(post['_when'])}")
-            if post.get("x"):
-                print("  X:", post["x"])
-            if post.get("threads"):
-                print("  Threads:", post["threads"])
-        print("No posts were sent because config.json has dry_run=true.")
+    if wanted_services.issubset(done_services):
+        print(f"{post_id}: already published to all configured services.")
         return 0
 
     organization_id = get_organization_id(api_key)
     channels = get_channels(api_key, organization_id)
+
     service_channels: dict[str, dict[str, Any]] = {}
     for channel in channels:
         service = channel.get("service")
@@ -212,42 +220,50 @@ def main() -> int:
 
     missing = wanted_services - set(service_channels)
     if missing:
-        pretty = ", ".join(sorted(missing))
-        raise RuntimeError(f"Missing Buffer channel(s): {pretty}. Connect them in Buffer first.")
+        raise RuntimeError(
+            "Missing Buffer channel(s): " + ", ".join(sorted(missing))
+        )
 
-    print("Connected channels:")
-    for service, channel in sorted(service_channels.items()):
+    print("Connected Buffer channels:")
+    for service in sorted(wanted_services):
+        channel = service_channels[service]
         print(f"  {service}: {channel['name']} ({channel['id']})")
 
-    scheduled = get_scheduled_posts(api_key, organization_id)
-    existing = {
-        (item.get("channelId"), item.get("text", ""), normalize_due(item.get("dueAt")))
-        for item in scheduled
-    }
+    failures: list[str] = []
 
-    created = 0
-    skipped = 0
-    mapping = {"twitter": "x", "threads": "threads"}
+    for service in sorted(wanted_services):
+        if service in done_services:
+            print(f"SKIP {post_id} -> {service}: already recorded as published")
+            continue
 
-    for post in sorted(candidates, key=lambda p: p["_when"]):
-        due_at = iso_z(post["_when"])
-        for service in sorted(wanted_services):
-            text_key = mapping[service]
-            text = (post.get(text_key) or "").strip()
-            if not text:
-                continue
-            channel_id = service_channels[service]["id"]
-            fingerprint = (channel_id, text, due_at)
-            if fingerprint in existing:
-                print(f"SKIP {post['id']} -> {service}: already scheduled")
-                skipped += 1
-                continue
-            result = create_scheduled_post(api_key, channel_id, text, due_at)
-            print(f"CREATED {post['id']} -> {service}: {result['id']} @ {result.get('dueAt')}")
-            existing.add(fingerprint)
-            created += 1
+        due_at = (
+            datetime.now(timezone.utc) + timedelta(minutes=publish_delay_minutes)
+        ).isoformat(timespec="seconds").replace("+00:00", "Z")
 
-    print(f"Done. Created: {created}; skipped duplicates: {skipped}.")
+        try:
+            result = create_scheduled_post(
+                api_key,
+                service_channels[service]["id"],
+                texts[service],
+                due_at,
+            )
+            print(
+                f"CREATED {post_id} -> {service}: "
+                f"{result['id']} @ {result.get('dueAt')}"
+            )
+            done_services.add(service)
+            state[post_id] = sorted(done_services)
+            save_json(STATE_PATH, state)
+        except Exception as exc:
+            failures.append(f"{service}: {exc}")
+
+    state[post_id] = sorted(done_services)
+    save_json(STATE_PATH, state)
+
+    if failures:
+        raise RuntimeError("; ".join(failures))
+
+    print(f"Done: {post_id} queued for X + Threads.")
     return 0
 
 
