@@ -49,6 +49,7 @@ jobs:
 
             if ! git diff --cached --quiet; then
               git commit -m "Update social publishing state"
+              git pull --rebase origin main
               git push
             fi
           fi
