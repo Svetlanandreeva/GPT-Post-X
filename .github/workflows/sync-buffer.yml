@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
   push:
     paths:
+      - "posts/posts.json"
       - "scripts/sync_buffer.py"
       - "config.json"
       - ".github/workflows/sync-buffer.yml"
