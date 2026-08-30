@@ -1,5 +1,5 @@
 {
   "sync_horizon_days": 5,
-  "services": ["twitter", "threads"],
+  "services": ["twitter"],
   "dry_run": false
 }
