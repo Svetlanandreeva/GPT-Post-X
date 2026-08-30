@@ -7,5 +7,14 @@
     "source": "The New Stack, Aug 27 2026 — Aider, Claude Code, and OpenClaw ran an identical model; token use varied 70-fold",
     "x": "We keep benchmarking AI models while quietly letting the harness decide the bill.\n\nSame model, same tasks — token use can differ by orders of magnitude.\n\nMy takeaway: the next AI moat isn’t the model. It’s the system around it: context, routing, evals, recovery.",
     "threads": "Под постом про Aida меня спросили: что важнее — точность модели или то, как встроить AI в привычки человека.\n\nЧем дальше строю продукт, тем сильнее вижу: модель — только часть системы. Контекст, routing, evals, fallback и момент, когда лучше переспросить пользователя, часто важнее самого model choice.\n\nПохоже, moat прикладного AI будет не в модели, а в архитектуре вокруг неё.\n\nСогласны или сильная собственная модель всё ещё может быть главным преимуществом?"
+  },
+  {
+    "id": "20260830T214826Z",
+    "created_at": "2026-08-31T02:48:26+05:00",
+    "status": "READY",
+    "trend": "AIDA_BUILD",
+    "source": "Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325",
+    "x": "The more AI I put into a product, the less I want users to notice it.\n\nIn health, AI-first UX can become a liability: every extra prompt, confidence badge, or magic button asks users to manage the model.\n\nMy bias now: hide the intelligence, expose the control.",
+    "threads": "В комментариях к Aida обсуждали, что важнее: модель или то, как она встроена в жизнь человека.\n\nУ меня появилась ещё более жёсткая позиция: хороший AI-интерфейс в health вообще не должен ощущаться как AI-интерфейс.\n\nЧем больше человек вынужден думать о prompt, confidence и логике модели, тем больше продукт перекладывает свою работу на пользователя.\n\nИнтеллект лучше спрятать. Контроль — наоборот, оставить видимым."
   }
 ]
