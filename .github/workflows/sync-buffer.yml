@@ -1,26 +1,48 @@
-name: Sync posts to Buffer
+name: Sync social queue to Buffer
 
 on:
   schedule:
-    - cron: "17 05 * * *"
+    - cron: "13 * * * *"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: social-queue-publisher
+  cancel-in-progress: false
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: Sync approved posts
+
+      - name: Publish newest READY post
         env:
           BUFFER_API_KEY: ${{ secrets.SVETLANA_SOCIAL_PUBLISHER }}
         run: python scripts/sync_buffer.py
+
+      - name: Save publishing state
+        if: always()
+        run: |
+          if [ -f state/social_queue_state.json ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add state/social_queue_state.json
+
+            if ! git diff --cached --quiet; then
+              git commit -m "Update social publishing state"
+              git push
+            fi
+          fi
