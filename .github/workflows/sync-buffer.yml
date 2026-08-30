@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "13 * * * *"
   workflow_dispatch:
+  push:
+    paths:
+      - "scripts/sync_buffer.py"
+      - "config.json"
+      - ".github/workflows/sync-buffer.yml"
 
 permissions:
   contents: write
