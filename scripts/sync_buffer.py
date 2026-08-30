@@ -192,9 +192,15 @@ def main() -> int:
         if not texts.get(service):
             raise RuntimeError(f"{post_id}: missing text for {service}")
 
+    # Validate every platform before sending anything. This prevents a partial
+    # publish where X succeeds and Threads fails on a platform limit.
     if "twitter" in wanted_services and len(texts["twitter"]) > 280:
         raise RuntimeError(
             f"{post_id}: X text is {len(texts['twitter'])} characters; refusing to publish over 280."
+        )
+    if "threads" in wanted_services and len(texts["threads"]) > 500:
+        raise RuntimeError(
+            f"{post_id}: Threads text is {len(texts['threads'])} characters; refusing to publish over 500."
         )
 
     api_key = os.getenv("BUFFER_API_KEY", "").strip()
