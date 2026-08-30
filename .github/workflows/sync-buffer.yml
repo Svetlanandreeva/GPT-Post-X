@@ -22,5 +22,5 @@ jobs:
         run: pip install -r requirements.txt
       - name: Sync approved posts
         env:
-          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_API_KEY: ${{ secrets.SVETLANA_SOCIAL_PUBLISHER }}
         run: python scripts/sync_buffer.py
