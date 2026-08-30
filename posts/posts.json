@@ -1,9 +1,11 @@
 [
   {
-    "id": "example-001",
-    "enabled": true,
-    "publish_at": "2026-08-30T11:24:03Z",
-    "x": "Most founders don't need an AI agent. They need a few boring automations connected properly.",
-    "threads": "Hot take: most founders probably don't need an AI agent. In many cases, a few boring automations connected properly solve the problem faster, cheaper, and more reliably."
+    "id": "20260830T162800Z",
+    "created_at": "2026-08-30T21:28:00+05:00",
+    "status": "READY",
+    "trend": "CURRENT_AI",
+    "source": "The New Stack, Aug 27 2026 — Aider, Claude Code, and OpenClaw ran an identical model; token use varied 70-fold",
+    "x": "We keep benchmarking AI models while quietly letting the harness decide the bill.\n\nSame model, same tasks — token use can differ by orders of magnitude.\n\nMy takeaway: the next AI moat isn’t the model. It’s the system around it: context, routing, evals, recovery.",
+    "threads": "Под постом про Aida меня спросили: что важнее — точность модели или то, как встроить AI в привычки человека.\n\nЧем дальше строю продукт, тем сильнее вижу: модель — только часть системы. Контекст, routing, evals, fallback и момент, когда лучше переспросить пользователя, часто важнее самого model choice.\n\nПохоже, moat прикладного AI будет не в модели, а в архитектуре вокруг неё.\n\nСогласны или сильная собственная модель всё ещё может быть главным преимуществом?"
   }
 ]
