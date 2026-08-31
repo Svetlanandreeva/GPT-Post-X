@@ -61,5 +61,14 @@
     "source": "Original automation engineering observation",
     "x": "The automation bug I fear most isn't a crash. It's a retry that succeeds twice.\n\nA failed job is visible. A duplicated invoice, email, webhook or publish can look perfectly healthy.\n\nI'd take boring idempotency over clever recovery logic every time. Where do you enforce it?",
     "threads": "Самый неприятный сбой автоматизации — не когда она падает. А когда retry успешно выполняет действие второй раз.\n\nОшибка видна сразу. Двойной платёж, письмо, webhook или публикация могут выглядеть как «успешный run».\n\nПоэтому я скорее усложню idempotency, чем recovery. Где вы ставите защиту от дублей: на входе, в БД или у внешнего API?"
+  },
+  {
+    "id": "20260831T234527+0500",
+    "created_at": "2026-08-31T23:45:27+05:00",
+    "status": "READY",
+    "trend": "AIDA_PRODUCT_AUTH_ONBOARDING",
+    "source": "Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325 — Update authenticated mobile design",
+    "x": "I think most apps ask users to create an account too early.\n\nFor Aida, authenticated mobile UX pushed me toward a stricter rule: earn the need for identity before asking for it.\n\nWould you gate the product at signup, or let users reach the first useful moment first?",
+    "threads": "Чем дольше проектирую Aida, тем меньше верю в signup как первый экран.\n\nАвторизация нужна продукту раньше, чем пользователю. И это плохая причина заставлять человека создавать аккаунт до того, как он понял ценность сервиса.\n\nЯ бы показывала первый полезный сценарий раньше регистрации, если данные позволяют. Где вы ставите auth: на входе или перед первым сохранением?"
   }
 ]
