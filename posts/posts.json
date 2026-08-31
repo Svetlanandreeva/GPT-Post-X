@@ -25,5 +25,14 @@
     "source": "Product Hunt AI Coding Agents category, updated Aug 30 2026; async/background agent workflow trend across Cursor, Claude Code and GitHub Copilot",
     "x": "AI coding tools are converging on the same trick: let the agent keep working after you leave.\n\nThat changes the bottleneck. I no longer care only about code quality; I care whether the task was scoped well enough to run unattended.\n\nDelegation is becoming an engineering skill.",
     "threads": "Похоже, у AI-кодинга появился новый навык, который придётся прокачивать разработчикам: не prompting, а постановка задач.\n\nАгенты всё чаще умеют работать асинхронно — можно закрыть ноутбук и вернуться к PR. Но плохая задача теперь не просто даёт плохой ответ: агент может несколько часов уверенно делать не то.\n\nЧем автономнее инструмент, тем дороже неясное ТЗ."
+  },
+  {
+    "id": "20260831T084306+0500",
+    "created_at": "2026-08-31T08:43:06+05:00",
+    "status": "READY",
+    "trend": "CURRENT_AI_AGENT_IDENTITY",
+    "source": "Okta Agent SSO, Aug 24 2026 — first-class agent identities and short-lived identity-governed tokens",
+    "x": "AI agents are becoming users.\n\nOkta’s Agent SSO gives them first-class identities and short-lived tokens instead of shared API keys.\n\nThat’s a bigger shift than it sounds: once agents can act across SaaS, “which model?” matters less than “who exactly authorized this action?”",
+    "threads": "У AI-агентов появляется то, чего им давно не хватало: собственная identity.\n\nOkta добавила Agent SSO: агент можно зарегистрировать отдельно и выдавать ему короткоживущие токены вместо общих API-ключей.\n\nДля меня это важный сдвиг: агент перестаёт быть «скриптом от имени пользователя» и становится отдельным участником системы.\n\nА вы уже разделяете права человека и его агента?"
   }
 ]
