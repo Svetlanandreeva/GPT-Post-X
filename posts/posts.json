@@ -34,5 +34,14 @@
     "source": "Okta Agent SSO, Aug 24 2026 — first-class agent identities and short-lived identity-governed tokens",
     "x": "AI agents are becoming users.\n\nOkta’s Agent SSO gives them first-class identities and short-lived tokens instead of shared API keys.\n\nThat’s a bigger shift than it sounds: once agents can act across SaaS, “which model?” matters less than “who exactly authorized this action?”",
     "threads": "У AI-агентов появляется то, чего им давно не хватало: собственная identity.\n\nOkta добавила Agent SSO: агент можно зарегистрировать отдельно и выдавать ему короткоживущие токены вместо общих API-ключей.\n\nДля меня это важный сдвиг: агент перестаёт быть «скриптом от имени пользователя» и становится отдельным участником системы.\n\nА вы уже разделяете права человека и его агента?"
+  },
+  {
+    "id": "20260831T115014+0500",
+    "created_at": "2026-08-31T11:50:14+05:00",
+    "status": "READY",
+    "trend": "FOUNDER_SAAS_OVERENGINEERING",
+    "source": "CueBytes, Jul 31 2026 — Best Tech Stack for SaaS in 2026: example of a 10-user SaaS with Kubernetes, six microservices and Kafka where operational complexity slowed simple changes",
+    "x": "Hot take: if your 10-user SaaS needs Kubernetes, six microservices and Kafka, you don't have a scaling problem. You have a shipping problem.\n\nI'd take a boring monolith that deploys in 5 minutes over an architecture diagram that impresses engineers. Convince me otherwise.",
+    "threads": "Стартап с 10 пользователями и шестью микросервисами — это не «архитектура на вырост». Это налог на каждое следующее изменение.\n\nЯ бы выбрала скучный монолит, который выкатывается за 5 минут, вместо Kubernetes + Kafka «на будущее».\n\nГде для вас граница, после которой монолит реально пора делить: нагрузка, размер команды или боль от deploy?"
   }
 ]
