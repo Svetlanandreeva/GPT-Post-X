@@ -43,5 +43,14 @@
     "source": "CueBytes, Jul 31 2026 — Best Tech Stack for SaaS in 2026: example of a 10-user SaaS with Kubernetes, six microservices and Kafka where operational complexity slowed simple changes",
     "x": "Hot take: if your 10-user SaaS needs Kubernetes, six microservices and Kafka, you don't have a scaling problem. You have a shipping problem.\n\nI'd take a boring monolith that deploys in 5 minutes over an architecture diagram that impresses engineers. Convince me otherwise.",
     "threads": "Стартап с 10 пользователями и шестью микросервисами — это не «архитектура на вырост». Это налог на каждое следующее изменение.\n\nЯ бы выбрала скучный монолит, который выкатывается за 5 минут, вместо Kubernetes + Kafka «на будущее».\n\nГде для вас граница, после которой монолит реально пора делить: нагрузка, размер команды или боль от deploy?"
+  },
+  {
+    "id": "20260831T144328+0500",
+    "created_at": "2026-08-31T14:43:28+05:00",
+    "status": "READY",
+    "trend": "PRODUCT_FEATURE_PRUNING",
+    "source": "Original product-building observation",
+    "x": "Early-stage SaaS teams should delete features before adding analytics to explain why nobody uses them.\n\nIf a feature needs a dashboard to prove its value, it may already be product debt.\n\nWhat gets cut first: low usage, high support cost, or unclear value?",
+    "threads": "Есть продуктовая привычка, с которой я всё меньше согласна: если фичей не пользуются — сначала добавить аналитику и «разобраться».\n\nИногда правильнее просто удалить её. Особенно если она ещё и тянет поддержку, тесты и новые edge cases.\n\nЯ бы резала по стоимости сложности, а не только по usage. Что для вас сильнее: низкое использование или дорогая поддержка?"
   }
 ]
