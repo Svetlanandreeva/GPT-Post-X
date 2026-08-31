@@ -52,5 +52,14 @@
     "source": "Original product-building observation",
     "x": "Early-stage SaaS teams should delete features before adding analytics to explain why nobody uses them.\n\nIf a feature needs a dashboard to prove its value, it may already be product debt.\n\nWhat gets cut first: low usage, high support cost, or unclear value?",
     "threads": "Есть продуктовая привычка, с которой я всё меньше согласна: если фичей не пользуются — сначала добавить аналитику и «разобраться».\n\nИногда правильнее просто удалить её. Особенно если она ещё и тянет поддержку, тесты и новые edge cases.\n\nЯ бы резала по стоимости сложности, а не только по usage. Что для вас сильнее: низкое использование или дорогая поддержка?"
+  },
+  {
+    "id": "20260831T204918+0500",
+    "created_at": "2026-08-31T20:49:18+05:00",
+    "status": "READY",
+    "trend": "AUTOMATION_IDEMPOTENCY_RETRIES",
+    "source": "Original automation engineering observation",
+    "x": "The automation bug I fear most isn't a crash. It's a retry that succeeds twice.\n\nA failed job is visible. A duplicated invoice, email, webhook or publish can look perfectly healthy.\n\nI'd take boring idempotency over clever recovery logic every time. Where do you enforce it?",
+    "threads": "Самый неприятный сбой автоматизации — не когда она падает. А когда retry успешно выполняет действие второй раз.\n\nОшибка видна сразу. Двойной платёж, письмо, webhook или публикация могут выглядеть как «успешный run».\n\nПоэтому я скорее усложню idempotency, чем recovery. Где вы ставите защиту от дублей: на входе, в БД или у внешнего API?"
   }
 ]
