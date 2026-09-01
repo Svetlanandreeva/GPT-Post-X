@@ -88,5 +88,14 @@
     "source": "Original software engineering observation",
     "x": "A 1,000-line PR isn't a code-review problem. It's a planning problem.\n\nBy review time, the expensive decision is already made: scope grew unchecked.\n\nI'd rather review 5 imperfect PRs than one 'finished' masterpiece. Where do you draw the line?",
     "threads": "PR на 1000 строк — для меня уже не проблема code review, а проблема планирования.\n\nК моменту ревью главное решение принято: scope успел разрастись, а обратная связь стала дорогой.\n\nЯ скорее посмотрю 5 несовершенных маленьких PR, чем один «готовый» на полдня ревью. Где у вас начинается слишком большой PR: 300 строк, 500, 1000 — или строки вообще плохая метрика?"
+  },
+  {
+    "id": "20260901T084817+0500",
+    "created_at": "2026-09-01T08:48:17+05:00",
+    "status": "READY",
+    "trend": "FOUNDER_VALIDATION_PREORDERS",
+    "source": "Original founder/product observation",
+    "x": "I trust a $20 preorder more than 200 ‘I’d use this’ replies.\n\nCustomer interviews reveal language and pain. They don’t prove urgency. Money does.\n\nFor a new SaaS, I’d test willingness to pay before polishing the MVP. Too early — or exactly when pricing should start?",
+    "threads": "200 человек сказали «я бы пользовался» — и я всё равно меньше верю этому, чем одному предзаказу.\n\nИнтервью отлично показывают боль и язык клиента. Но срочность они не доказывают. Деньги — доказывают.\n\nЯ бы проверяла willingness to pay ещё до красивого MVP. Для вас это слишком рано или именно тогда и надо начинать разговор о цене?"
   }
 ]
