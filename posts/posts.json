@@ -79,5 +79,14 @@
     "source": "GitHub Agentic Workflows Weekly Update, Aug 31 2026 — typed on.stop-after supports GitHub Actions expressions",
     "x": "GitHub Agentic Workflows now supports expression-based stop limits.\n\nThat’s the agent feature I want more of: hard budgets, not more autonomy.\n\nIf an agent can open PRs, edit issues or trigger workflows, “stop after N” is a product feature. What would you cap first?",
     "threads": "В GitHub Agentic Workflows появились гибкие stop-after лимиты.\n\nИ вот это мне интереснее очередного «агент стал автономнее». Чем больше действий мы отдаём агенту, тем важнее заранее определить, где он обязан остановиться.\n\nЯ бы сначала ограничивала число внешних действий, а не токены. Что для вас опаснее: лишние расходы или лишнее действие в проде?"
+  },
+  {
+    "id": "20260901T054557+0500",
+    "created_at": "2026-09-01T05:45:57+05:00",
+    "status": "READY",
+    "trend": "ENGINEERING_CODE_REVIEW_PR_SCOPE",
+    "source": "Original software engineering observation",
+    "x": "A 1,000-line PR isn't a code-review problem. It's a planning problem.\n\nBy review time, the expensive decision is already made: scope grew unchecked.\n\nI'd rather review 5 imperfect PRs than one 'finished' masterpiece. Where do you draw the line?",
+    "threads": "PR на 1000 строк — для меня уже не проблема code review, а проблема планирования.\n\nК моменту ревью главное решение принято: scope успел разрастись, а обратная связь стала дорогой.\n\nЯ скорее посмотрю 5 несовершенных маленьких PR, чем один «готовый» на полдня ревью. Где у вас начинается слишком большой PR: 300 строк, 500, 1000 — или строки вообще плохая метрика?"
   }
 ]
