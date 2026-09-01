@@ -142,5 +142,14 @@
     "source": "Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325 — authenticated mobile design; no newer product commit as of Sep 1 2026",
     "x": "For Aida, I’d rather show ‘I don’t know’ than manufacture confidence.\n\nHealth products often treat uncertainty like bad UX. I think hiding it is worse UX: a polished answer can look more trustworthy than it deserves.\n\nWould you expose uncertainty or simplify it away?",
     "threads": "У health-продукта есть очень соблазнительная кнопка: сделать всё уверенным и красивым. Даже когда система не уверена 😅\n\nС Aida я скорее покажу «не знаю», чем нарисую пользователю спокойную иллюзию точности. Да, это менее магично. Зато человек понимает границы продукта.\n\nИнтересно, где для вас заканчивается хороший UX и начинается опасное упрощение?"
+  },
+  {
+    "id": "20260902T024839+0500",
+    "created_at": "2026-09-02T02:48:39+05:00",
+    "status": "READY",
+    "trend": "SOFTWARE_ENGINEERING_SCHEMA_MIGRATIONS",
+    "source": "Original software engineering observation",
+    "x": "I stopped treating “rollback” as “run the migration backwards.” In production, data has already moved, new writes happened, and the old code may no longer understand it. For schema changes I’d rather roll forward with a fix than pretend time travel is an ops strategy.",
+    "threads": "Очень люблю инструкции «если что — откатим миграцию». Особенно после того, как новые данные уже записались по новой схеме 😅\n\nВ этот момент rollback внезапно превращается в археологию с продом в качестве раскопок.\n\nДля schema changes я почти всегда предпочту roll forward с фиксом. Машину времени в инфраструктуру пока не завезли."
   }
 ]
