@@ -115,5 +115,14 @@
     "source": "AWS Weekly Roundup, Aug 31 2026 — Lambda public preview runtimes for Node.js 26 and Python 3.15",
     "x": "AWS Lambda now lets teams test Node.js 26 and Python 3.15 runtimes before GA, then graduate automatically.\n\nI like the preview. I dislike the auto-graduation.\n\nA runtime becoming ‘stable’ shouldn’t silently become a production decision. Would you pin or auto-upgrade?",
     "threads": "AWS Lambda теперь даёт тестировать Node.js 26 и Python 3.15 до GA, а потом автоматически переводит runtime в стабильный.\n\nPreview — отлично. Auto-graduation мне нравится меньше: статус «stable» у платформы не должен автоматически становиться решением для прода.\n\nЯ бы фиксировала runtime явно. Вы бы оставили auto-upgrade или пиннили версию?"
+  },
+  {
+    "id": "20260901T174306+0500",
+    "created_at": "2026-09-01T17:43:06+05:00",
+    "status": "READY",
+    "trend": "AUTOMATION_WHEN_NOT_TO_AUTOMATE",
+    "source": "Original automation engineering observation",
+    "x": "Unpopular automation rule: if a task happens twice a month, I usually leave it manual.\n\nNot because automation is hard. Because now I own retries, auth, monitoring and every API change forever.\n\nThe boring 4-minute task can be cheaper than the elegant workflow.",
+    "threads": "Обожаю автоматизацию. Поэтому некоторые вещи принципиально не автоматизирую 😅\n\nЗадача на 4 минуты два раза в месяц выглядит как отличный кандидат — пока не появляются OAuth, retries, monitoring и API, который однажды решил пожить по-новому.\n\nИ вот ты уже экономишь 8 минут в месяц, обслуживая маленькую распределённую систему. Красота."
   }
 ]
