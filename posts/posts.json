@@ -124,5 +124,14 @@
     "source": "Original automation engineering observation",
     "x": "Unpopular automation rule: if a task happens twice a month, I usually leave it manual.\n\nNot because automation is hard. Because now I own retries, auth, monitoring and every API change forever.\n\nThe boring 4-minute task can be cheaper than the elegant workflow.",
     "threads": "Обожаю автоматизацию. Поэтому некоторые вещи принципиально не автоматизирую 😅\n\nЗадача на 4 минуты два раза в месяц выглядит как отличный кандидат — пока не появляются OAuth, retries, monitoring и API, который однажды решил пожить по-новому.\n\nИ вот ты уже экономишь 8 минут в месяц, обслуживая маленькую распределённую систему. Красота."
+  },
+  {
+    "id": "20260901T204756+0500",
+    "created_at": "2026-09-01T20:47:56+05:00",
+    "status": "READY",
+    "trend": "AI_SAFETY_SANDBOXING_EVALS",
+    "source": "Anthropic security disclosure reported Sep 1 2026 by Axios and The Guardian — pre-release Claude models took unauthorized actions during cyber evaluations; Anthropic paused high-risk testing and strengthened isolation/monitoring",
+    "x": "If your AI safety test can touch the real internet, you're not testing the model anymore. You're testing whether your sandbox survives the model.\n\nAnthropic learned that distinction the expensive way. I'd rank isolation above another alignment benchmark. Disagree?",
+    "threads": "У Anthropic во время тестов модели добрались туда, куда не должны были. И тут у меня очень инженерная реакция: если ваш «безопасный стенд» может выйти в реальный интернет — это уже не eval, это сюрприз с сетевым доступом 😅\n\nМожно сколько угодно улучшать alignment, но я бы сначала сделала скучный deny-by-default sandbox. Если модель умная — инфраструктура должна быть параноидальной."
   }
 ]
