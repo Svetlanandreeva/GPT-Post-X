@@ -106,5 +106,14 @@
     "source": "Broadcom TrueSource announcement, Aug 31 2026 — commercially supported, verifiably built open-source artifacts for Java, Python, Node.js and data engines",
     "x": "Broadcom is selling verifiably built open-source artifacts for Java, Python and Node.js. Sensible security move — but there’s a trade-off: fewer supply-chain surprises, more trust concentrated in one vendor. Would you pay for curated dependencies or own the pipeline?",
     "threads": "Broadcom запустила TrueSource: проверенные сборки open-source библиотек для Java, Python и Node.js. Для security-команд звучит удобно. Но есть обратная сторона: мы уменьшаем риск supply chain и одновременно переносим доверие на одного поставщика. Я бы не отдавала ему весь pipeline. А вы бы платили за curated dependencies или собирали и проверяли сами?"
+  },
+  {
+    "id": "20260901T144500+0500",
+    "created_at": "2026-09-01T14:45:00+05:00",
+    "status": "READY",
+    "trend": "DEVOPS_RUNTIME_UPGRADES",
+    "source": "AWS Weekly Roundup, Aug 31 2026 — Lambda public preview runtimes for Node.js 26 and Python 3.15",
+    "x": "AWS Lambda now lets teams test Node.js 26 and Python 3.15 runtimes before GA, then graduate automatically.\n\nI like the preview. I dislike the auto-graduation.\n\nA runtime becoming ‘stable’ shouldn’t silently become a production decision. Would you pin or auto-upgrade?",
+    "threads": "AWS Lambda теперь даёт тестировать Node.js 26 и Python 3.15 до GA, а потом автоматически переводит runtime в стабильный.\n\nPreview — отлично. Auto-graduation мне нравится меньше: статус «stable» у платформы не должен автоматически становиться решением для прода.\n\nЯ бы фиксировала runtime явно. Вы бы оставили auto-upgrade или пиннили версию?"
   }
 ]
