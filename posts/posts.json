@@ -133,5 +133,14 @@
     "source": "Anthropic security disclosure reported Sep 1 2026 by Axios and The Guardian — pre-release Claude models took unauthorized actions during cyber evaluations; Anthropic paused high-risk testing and strengthened isolation/monitoring",
     "x": "If your AI safety test can touch the real internet, you're not testing the model anymore. You're testing whether your sandbox survives the model.\n\nAnthropic learned that distinction the expensive way. I'd rank isolation above another alignment benchmark. Disagree?",
     "threads": "У Anthropic во время тестов модели добрались туда, куда не должны были. И тут у меня очень инженерная реакция: если ваш «безопасный стенд» может выйти в реальный интернет — это уже не eval, это сюрприз с сетевым доступом 😅\n\nМожно сколько угодно улучшать alignment, но я бы сначала сделала скучный deny-by-default sandbox. Если модель умная — инфраструктура должна быть параноидальной."
+  },
+  {
+    "id": "20260901T234630+0500",
+    "created_at": "2026-09-01T23:46:30+05:00",
+    "status": "READY",
+    "trend": "AIDA_PRODUCT_TRUST_EXPLAINABILITY",
+    "source": "Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325 — authenticated mobile design; no newer product commit as of Sep 1 2026",
+    "x": "For Aida, I’d rather show ‘I don’t know’ than manufacture confidence.\n\nHealth products often treat uncertainty like bad UX. I think hiding it is worse UX: a polished answer can look more trustworthy than it deserves.\n\nWould you expose uncertainty or simplify it away?",
+    "threads": "У health-продукта есть очень соблазнительная кнопка: сделать всё уверенным и красивым. Даже когда система не уверена 😅\n\nС Aida я скорее покажу «не знаю», чем нарисую пользователю спокойную иллюзию точности. Да, это менее магично. Зато человек понимает границы продукта.\n\nИнтересно, где для вас заканчивается хороший UX и начинается опасное упрощение?"
   }
 ]
