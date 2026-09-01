@@ -97,5 +97,14 @@
     "source": "Original founder/product observation",
     "x": "I trust a $20 preorder more than 200 ‘I’d use this’ replies.\n\nCustomer interviews reveal language and pain. They don’t prove urgency. Money does.\n\nFor a new SaaS, I’d test willingness to pay before polishing the MVP. Too early — or exactly when pricing should start?",
     "threads": "200 человек сказали «я бы пользовался» — и я всё равно меньше верю этому, чем одному предзаказу.\n\nИнтервью отлично показывают боль и язык клиента. Но срочность они не доказывают. Деньги — доказывают.\n\nЯ бы проверяла willingness to pay ещё до красивого MVP. Для вас это слишком рано или именно тогда и надо начинать разговор о цене?"
+  },
+  {
+    "id": "20260901T114521+0500",
+    "created_at": "2026-09-01T11:45:21+05:00",
+    "status": "READY",
+    "trend": "DEVSECOPS_OPEN_SOURCE_SUPPLY_CHAIN",
+    "source": "Broadcom TrueSource announcement, Aug 31 2026 — commercially supported, verifiably built open-source artifacts for Java, Python, Node.js and data engines",
+    "x": "Broadcom is selling verifiably built open-source artifacts for Java, Python and Node.js. Sensible security move — but there’s a trade-off: fewer supply-chain surprises, more trust concentrated in one vendor. Would you pay for curated dependencies or own the pipeline?",
+    "threads": "Broadcom запустила TrueSource: проверенные сборки open-source библиотек для Java, Python и Node.js. Для security-команд звучит удобно. Но есть обратная сторона: мы уменьшаем риск supply chain и одновременно переносим доверие на одного поставщика. Я бы не отдавала ему весь pipeline. А вы бы платили за curated dependencies или собирали и проверяли сами?"
   }
 ]
