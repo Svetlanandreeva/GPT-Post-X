@@ -169,5 +169,14 @@
     "source": "Original product-building observation",
     "x": "I’d rather ship an empty state with one obvious next step than a dashboard full of “helpful” cards. If a new user needs a tour to understand where to click, the product is already negotiating with its own UI. Tutorials often hide navigation debt.",
     "threads": "Люблю onboarding, где тебя встречают 7 карточек, 4 tooltip и тур на 12 шагов. Очень заботливо. Почти как квест, только приз — понять, куда нажать.\n\nЯ всё больше за пустой экран с одним очевидным следующим действием. Если интерфейс приходится долго объяснять, возможно, проблема всё-таки не в пользователе."
+  },
+  {
+    "id": "20260902T114741+0500",
+    "created_at": "2026-09-02T11:47:41+05:00",
+    "status": "READY",
+    "trend": "AI_MODEL_CAPABILITY_ACCESS_TIERS",
+    "source": "Reuters, Sep 1 2026 — OpenAI says upcoming Astra model crossed its Critical cybersecurity capability threshold and will launch with stronger safeguards and limited access to its most powerful cyber capabilities",
+    "x": "Prediction: frontier AI releases will start looking less like software launches and more like permission systems. OpenAI’s Astra crossed its Critical cyber threshold, so its strongest capabilities get restricted access. ‘Which model?’ is becoming ‘which capabilities are you cleared for?’",
+    "threads": "Кажется, скоро релиз новой AI-модели будет выглядеть как выдача прав в админке.\n\nOpenAI говорит, что Astra дошла до Critical по cyber capabilities, поэтому самые мощные возможности дадут не всем. Логично. И немного смешно: ещё недавно выбирали модель по benchmark, теперь скоро будем выбирать по уровню допуска.\n\nEnterprise RBAC добрался до интеллекта."
   }
 ]
