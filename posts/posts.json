@@ -160,5 +160,14 @@
     "source": "Original DevOps engineering observation",
     "x": "I don’t trust staging environments that are cleaner than production. If prod has weird data, stale flags and half-finished migrations, staging with perfect fixtures proves very little. A messy test environment catches more truth than a beautiful demo.",
     "threads": "Немного подозрительно отношусь к staging, где всё идеально работает.\n\nЧистые fixtures, правильные данные, ни одного забытого feature flag — красота. Потом приходит прод со своей коллекцией исторических решений и говорит: «привет».\n\nИногда лучший тестовый стенд должен быть слегка помойкой. Желательно контролируемой."
+  },
+  {
+    "id": "20260902T084430+0500",
+    "created_at": "2026-09-02T08:44:30+05:00",
+    "status": "READY",
+    "trend": "PRODUCT_ONBOARDING_EMPTY_STATES",
+    "source": "Original product-building observation",
+    "x": "I’d rather ship an empty state with one obvious next step than a dashboard full of “helpful” cards. If a new user needs a tour to understand where to click, the product is already negotiating with its own UI. Tutorials often hide navigation debt.",
+    "threads": "Люблю onboarding, где тебя встречают 7 карточек, 4 tooltip и тур на 12 шагов. Очень заботливо. Почти как квест, только приз — понять, куда нажать.\n\nЯ всё больше за пустой экран с одним очевидным следующим действием. Если интерфейс приходится долго объяснять, возможно, проблема всё-таки не в пользователе."
   }
 ]
