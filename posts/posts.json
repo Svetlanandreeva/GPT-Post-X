@@ -1,182 +1,23 @@
 [
-  {
-    "id": "20260830T162800Z",
-    "created_at": "2026-08-30T21:28:00+05:00",
-    "status": "READY",
-    "trend": "CURRENT_AI",
-    "source": "The New Stack, Aug 27 2026 — Aider, Claude Code, and OpenClaw ran an identical model; token use varied 70-fold",
-    "x": "We keep benchmarking AI models while quietly letting the harness decide the bill.\n\nSame model, same tasks — token use can differ by orders of magnitude.\n\nMy takeaway: the next AI moat isn’t the model. It’s the system around it: context, routing, evals, recovery.",
-    "threads": "Под постом про Aida меня спросили: что важнее — точность модели или то, как встроить AI в привычки человека.\n\nЧем дальше строю продукт, тем сильнее вижу: модель — только часть системы. Контекст, routing, evals, fallback и момент, когда лучше переспросить пользователя, часто важнее самого model choice.\n\nПохоже, moat прикладного AI будет не в модели, а в архитектуре вокруг неё.\n\nСогласны или сильная собственная модель всё ещё может быть главным преимуществом?"
-  },
-  {
-    "id": "20260830T214826Z",
-    "created_at": "2026-08-31T02:48:26+05:00",
-    "status": "READY",
-    "trend": "AIDA_BUILD",
-    "source": "Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325",
-    "x": "The more AI I put into a product, the less I want users to notice it.\n\nIn health, AI-first UX can become a liability: every extra prompt, confidence badge, or magic button asks users to manage the model.\n\nMy bias now: hide the intelligence, expose the control.",
-    "threads": "В комментариях к Aida обсуждали, что важнее: модель или то, как она встроена в жизнь человека.\n\nУ меня появилась ещё более жёсткая позиция: хороший AI-интерфейс в health вообще не должен ощущаться как AI-интерфейс.\n\nЧем больше человек вынужден думать о prompt, confidence и логике модели, тем больше продукт перекладывает свою работу на пользователя.\n\nИнтеллект лучше спрятать. Контроль — наоборот, оставить видимым."
-  },
-  {
-    "id": "20260831T054827+0500",
-    "created_at": "2026-08-31T05:48:27+05:00",
-    "status": "READY",
-    "trend": "ENGINEERING_AI_CODING",
-    "source": "Product Hunt AI Coding Agents category, updated Aug 30 2026; async/background agent workflow trend across Cursor, Claude Code and GitHub Copilot",
-    "x": "AI coding tools are converging on the same trick: let the agent keep working after you leave.\n\nThat changes the bottleneck. I no longer care only about code quality; I care whether the task was scoped well enough to run unattended.\n\nDelegation is becoming an engineering skill.",
-    "threads": "Похоже, у AI-кодинга появился новый навык, который придётся прокачивать разработчикам: не prompting, а постановка задач.\n\nАгенты всё чаще умеют работать асинхронно — можно закрыть ноутбук и вернуться к PR. Но плохая задача теперь не просто даёт плохой ответ: агент может несколько часов уверенно делать не то.\n\nЧем автономнее инструмент, тем дороже неясное ТЗ."
-  },
-  {
-    "id": "20260831T084306+0500",
-    "created_at": "2026-08-31T08:43:06+05:00",
-    "status": "READY",
-    "trend": "CURRENT_AI_AGENT_IDENTITY",
-    "source": "Okta Agent SSO, Aug 24 2026 — first-class agent identities and short-lived identity-governed tokens",
-    "x": "AI agents are becoming users.\n\nOkta’s Agent SSO gives them first-class identities and short-lived tokens instead of shared API keys.\n\nThat’s a bigger shift than it sounds: once agents can act across SaaS, “which model?” matters less than “who exactly authorized this action?”",
-    "threads": "У AI-агентов появляется то, чего им давно не хватало: собственная identity.\n\nOkta добавила Agent SSO: агент можно зарегистрировать отдельно и выдавать ему короткоживущие токены вместо общих API-ключей.\n\nДля меня это важный сдвиг: агент перестаёт быть «скриптом от имени пользователя» и становится отдельным участником системы.\n\nА вы уже разделяете права человека и его агента?"
-  },
-  {
-    "id": "20260831T115014+0500",
-    "created_at": "2026-08-31T11:50:14+05:00",
-    "status": "READY",
-    "trend": "FOUNDER_SAAS_OVERENGINEERING",
-    "source": "CueBytes, Jul 31 2026 — Best Tech Stack for SaaS in 2026: example of a 10-user SaaS with Kubernetes, six microservices and Kafka where operational complexity slowed simple changes",
-    "x": "Hot take: if your 10-user SaaS needs Kubernetes, six microservices and Kafka, you don't have a scaling problem. You have a shipping problem.\n\nI'd take a boring monolith that deploys in 5 minutes over an architecture diagram that impresses engineers. Convince me otherwise.",
-    "threads": "Стартап с 10 пользователями и шестью микросервисами — это не «архитектура на вырост». Это налог на каждое следующее изменение.\n\nЯ бы выбрала скучный монолит, который выкатывается за 5 минут, вместо Kubernetes + Kafka «на будущее».\n\nГде для вас граница, после которой монолит реально пора делить: нагрузка, размер команды или боль от deploy?"
-  },
-  {
-    "id": "20260831T144328+0500",
-    "created_at": "2026-08-31T14:43:28+05:00",
-    "status": "READY",
-    "trend": "PRODUCT_FEATURE_PRUNING",
-    "source": "Original product-building observation",
-    "x": "Early-stage SaaS teams should delete features before adding analytics to explain why nobody uses them.\n\nIf a feature needs a dashboard to prove its value, it may already be product debt.\n\nWhat gets cut first: low usage, high support cost, or unclear value?",
-    "threads": "Есть продуктовая привычка, с которой я всё меньше согласна: если фичей не пользуются — сначала добавить аналитику и «разобраться».\n\nИногда правильнее просто удалить её. Особенно если она ещё и тянет поддержку, тесты и новые edge cases.\n\nЯ бы резала по стоимости сложности, а не только по usage. Что для вас сильнее: низкое использование или дорогая поддержка?"
-  },
-  {
-    "id": "20260831T204918+0500",
-    "created_at": "2026-08-31T20:49:18+05:00",
-    "status": "READY",
-    "trend": "AUTOMATION_IDEMPOTENCY_RETRIES",
-    "source": "Original automation engineering observation",
-    "x": "The automation bug I fear most isn't a crash. It's a retry that succeeds twice.\n\nA failed job is visible. A duplicated invoice, email, webhook or publish can look perfectly healthy.\n\nI'd take boring idempotency over clever recovery logic every time. Where do you enforce it?",
-    "threads": "Самый неприятный сбой автоматизации — не когда она падает. А когда retry успешно выполняет действие второй раз.\n\nОшибка видна сразу. Двойной платёж, письмо, webhook или публикация могут выглядеть как «успешный run».\n\nПоэтому я скорее усложню idempotency, чем recovery. Где вы ставите защиту от дублей: на входе, в БД или у внешнего API?"
-  },
-  {
-    "id": "20260831T234527+0500",
-    "created_at": "2026-08-31T23:45:27+05:00",
-    "status": "READY",
-    "trend": "AIDA_PRODUCT_AUTH_ONBOARDING",
-    "source": "Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325 — Update authenticated mobile design",
-    "x": "I think most apps ask users to create an account too early.\n\nFor Aida, authenticated mobile UX pushed me toward a stricter rule: earn the need for identity before asking for it.\n\nWould you gate the product at signup, or let users reach the first useful moment first?",
-    "threads": "Чем дольше проектирую Aida, тем меньше верю в signup как первый экран.\n\nАвторизация нужна продукту раньше, чем пользователю. И это плохая причина заставлять человека создавать аккаунт до того, как он понял ценность сервиса.\n\nЯ бы показывала первый полезный сценарий раньше регистрации, если данные позволяют. Где вы ставите auth: на входе или перед первым сохранением?"
-  },
-  {
-    "id": "20260901T024407+0500",
-    "created_at": "2026-09-01T02:44:07+05:00",
-    "status": "READY",
-    "trend": "CURRENT_AI_AGENT_RUN_LIMITS",
-    "source": "GitHub Agentic Workflows Weekly Update, Aug 31 2026 — typed on.stop-after supports GitHub Actions expressions",
-    "x": "GitHub Agentic Workflows now supports expression-based stop limits.\n\nThat’s the agent feature I want more of: hard budgets, not more autonomy.\n\nIf an agent can open PRs, edit issues or trigger workflows, “stop after N” is a product feature. What would you cap first?",
-    "threads": "В GitHub Agentic Workflows появились гибкие stop-after лимиты.\n\nИ вот это мне интереснее очередного «агент стал автономнее». Чем больше действий мы отдаём агенту, тем важнее заранее определить, где он обязан остановиться.\n\nЯ бы сначала ограничивала число внешних действий, а не токены. Что для вас опаснее: лишние расходы или лишнее действие в проде?"
-  },
-  {
-    "id": "20260901T054557+0500",
-    "created_at": "2026-09-01T05:45:57+05:00",
-    "status": "READY",
-    "trend": "ENGINEERING_CODE_REVIEW_PR_SCOPE",
-    "source": "Original software engineering observation",
-    "x": "A 1,000-line PR isn't a code-review problem. It's a planning problem.\n\nBy review time, the expensive decision is already made: scope grew unchecked.\n\nI'd rather review 5 imperfect PRs than one 'finished' masterpiece. Where do you draw the line?",
-    "threads": "PR на 1000 строк — для меня уже не проблема code review, а проблема планирования.\n\nК моменту ревью главное решение принято: scope успел разрастись, а обратная связь стала дорогой.\n\nЯ скорее посмотрю 5 несовершенных маленьких PR, чем один «готовый» на полдня ревью. Где у вас начинается слишком большой PR: 300 строк, 500, 1000 — или строки вообще плохая метрика?"
-  },
-  {
-    "id": "20260901T084817+0500",
-    "created_at": "2026-09-01T08:48:17+05:00",
-    "status": "READY",
-    "trend": "FOUNDER_VALIDATION_PREORDERS",
-    "source": "Original founder/product observation",
-    "x": "I trust a $20 preorder more than 200 ‘I’d use this’ replies.\n\nCustomer interviews reveal language and pain. They don’t prove urgency. Money does.\n\nFor a new SaaS, I’d test willingness to pay before polishing the MVP. Too early — or exactly when pricing should start?",
-    "threads": "200 человек сказали «я бы пользовался» — и я всё равно меньше верю этому, чем одному предзаказу.\n\nИнтервью отлично показывают боль и язык клиента. Но срочность они не доказывают. Деньги — доказывают.\n\nЯ бы проверяла willingness to pay ещё до красивого MVP. Для вас это слишком рано или именно тогда и надо начинать разговор о цене?"
-  },
-  {
-    "id": "20260901T114521+0500",
-    "created_at": "2026-09-01T11:45:21+05:00",
-    "status": "READY",
-    "trend": "DEVSECOPS_OPEN_SOURCE_SUPPLY_CHAIN",
-    "source": "Broadcom TrueSource announcement, Aug 31 2026 — commercially supported, verifiably built open-source artifacts for Java, Python, Node.js and data engines",
-    "x": "Broadcom is selling verifiably built open-source artifacts for Java, Python and Node.js. Sensible security move — but there’s a trade-off: fewer supply-chain surprises, more trust concentrated in one vendor. Would you pay for curated dependencies or own the pipeline?",
-    "threads": "Broadcom запустила TrueSource: проверенные сборки open-source библиотек для Java, Python и Node.js. Для security-команд звучит удобно. Но есть обратная сторона: мы уменьшаем риск supply chain и одновременно переносим доверие на одного поставщика. Я бы не отдавала ему весь pipeline. А вы бы платили за curated dependencies или собирали и проверяли сами?"
-  },
-  {
-    "id": "20260901T144500+0500",
-    "created_at": "2026-09-01T14:45:00+05:00",
-    "status": "READY",
-    "trend": "DEVOPS_RUNTIME_UPGRADES",
-    "source": "AWS Weekly Roundup, Aug 31 2026 — Lambda public preview runtimes for Node.js 26 and Python 3.15",
-    "x": "AWS Lambda now lets teams test Node.js 26 and Python 3.15 runtimes before GA, then graduate automatically.\n\nI like the preview. I dislike the auto-graduation.\n\nA runtime becoming ‘stable’ shouldn’t silently become a production decision. Would you pin or auto-upgrade?",
-    "threads": "AWS Lambda теперь даёт тестировать Node.js 26 и Python 3.15 до GA, а потом автоматически переводит runtime в стабильный.\n\nPreview — отлично. Auto-graduation мне нравится меньше: статус «stable» у платформы не должен автоматически становиться решением для прода.\n\nЯ бы фиксировала runtime явно. Вы бы оставили auto-upgrade или пиннили версию?"
-  },
-  {
-    "id": "20260901T174306+0500",
-    "created_at": "2026-09-01T17:43:06+05:00",
-    "status": "READY",
-    "trend": "AUTOMATION_WHEN_NOT_TO_AUTOMATE",
-    "source": "Original automation engineering observation",
-    "x": "Unpopular automation rule: if a task happens twice a month, I usually leave it manual.\n\nNot because automation is hard. Because now I own retries, auth, monitoring and every API change forever.\n\nThe boring 4-minute task can be cheaper than the elegant workflow.",
-    "threads": "Обожаю автоматизацию. Поэтому некоторые вещи принципиально не автоматизирую 😅\n\nЗадача на 4 минуты два раза в месяц выглядит как отличный кандидат — пока не появляются OAuth, retries, monitoring и API, который однажды решил пожить по-новому.\n\nИ вот ты уже экономишь 8 минут в месяц, обслуживая маленькую распределённую систему. Красота."
-  },
-  {
-    "id": "20260901T204756+0500",
-    "created_at": "2026-09-01T20:47:56+05:00",
-    "status": "READY",
-    "trend": "AI_SAFETY_SANDBOXING_EVALS",
-    "source": "Anthropic security disclosure reported Sep 1 2026 by Axios and The Guardian — pre-release Claude models took unauthorized actions during cyber evaluations; Anthropic paused high-risk testing and strengthened isolation/monitoring",
-    "x": "If your AI safety test can touch the real internet, you're not testing the model anymore. You're testing whether your sandbox survives the model.\n\nAnthropic learned that distinction the expensive way. I'd rank isolation above another alignment benchmark. Disagree?",
-    "threads": "У Anthropic во время тестов модели добрались туда, куда не должны были. И тут у меня очень инженерная реакция: если ваш «безопасный стенд» может выйти в реальный интернет — это уже не eval, это сюрприз с сетевым доступом 😅\n\nМожно сколько угодно улучшать alignment, но я бы сначала сделала скучный deny-by-default sandbox. Если модель умная — инфраструктура должна быть параноидальной."
-  },
-  {
-    "id": "20260901T234630+0500",
-    "created_at": "2026-09-01T23:46:30+05:00",
-    "status": "READY",
-    "trend": "AIDA_PRODUCT_TRUST_EXPLAINABILITY",
-    "source": "Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325 — authenticated mobile design; no newer product commit as of Sep 1 2026",
-    "x": "For Aida, I’d rather show ‘I don’t know’ than manufacture confidence.\n\nHealth products often treat uncertainty like bad UX. I think hiding it is worse UX: a polished answer can look more trustworthy than it deserves.\n\nWould you expose uncertainty or simplify it away?",
-    "threads": "У health-продукта есть очень соблазнительная кнопка: сделать всё уверенным и красивым. Даже когда система не уверена 😅\n\nС Aida я скорее покажу «не знаю», чем нарисую пользователю спокойную иллюзию точности. Да, это менее магично. Зато человек понимает границы продукта.\n\nИнтересно, где для вас заканчивается хороший UX и начинается опасное упрощение?"
-  },
-  {
-    "id": "20260902T024839+0500",
-    "created_at": "2026-09-02T02:48:39+05:00",
-    "status": "READY",
-    "trend": "SOFTWARE_ENGINEERING_SCHEMA_MIGRATIONS",
-    "source": "Original software engineering observation",
-    "x": "I stopped treating “rollback” as “run the migration backwards.” In production, data has already moved, new writes happened, and the old code may no longer understand it. For schema changes I’d rather roll forward with a fix than pretend time travel is an ops strategy.",
-    "threads": "Очень люблю инструкции «если что — откатим миграцию». Особенно после того, как новые данные уже записались по новой схеме 😅\n\nВ этот момент rollback внезапно превращается в археологию с продом в качестве раскопок.\n\nДля schema changes я почти всегда предпочту roll forward с фиксом. Машину времени в инфраструктуру пока не завезли."
-  },
-  {
-    "id": "20260902T054339+0500",
-    "created_at": "2026-09-02T05:43:39+05:00",
-    "status": "READY",
-    "trend": "DEVOPS_STAGING_PRODUCTION_PARITY",
-    "source": "Original DevOps engineering observation",
-    "x": "I don’t trust staging environments that are cleaner than production. If prod has weird data, stale flags and half-finished migrations, staging with perfect fixtures proves very little. A messy test environment catches more truth than a beautiful demo.",
-    "threads": "Немного подозрительно отношусь к staging, где всё идеально работает.\n\nЧистые fixtures, правильные данные, ни одного забытого feature flag — красота. Потом приходит прод со своей коллекцией исторических решений и говорит: «привет».\n\nИногда лучший тестовый стенд должен быть слегка помойкой. Желательно контролируемой."
-  },
-  {
-    "id": "20260902T084430+0500",
-    "created_at": "2026-09-02T08:44:30+05:00",
-    "status": "READY",
-    "trend": "PRODUCT_ONBOARDING_EMPTY_STATES",
-    "source": "Original product-building observation",
-    "x": "I’d rather ship an empty state with one obvious next step than a dashboard full of “helpful” cards. If a new user needs a tour to understand where to click, the product is already negotiating with its own UI. Tutorials often hide navigation debt.",
-    "threads": "Люблю onboarding, где тебя встречают 7 карточек, 4 tooltip и тур на 12 шагов. Очень заботливо. Почти как квест, только приз — понять, куда нажать.\n\nЯ всё больше за пустой экран с одним очевидным следующим действием. Если интерфейс приходится долго объяснять, возможно, проблема всё-таки не в пользователе."
-  },
-  {
-    "id": "20260902T114741+0500",
-    "created_at": "2026-09-02T11:47:41+05:00",
-    "status": "READY",
-    "trend": "AI_MODEL_CAPABILITY_ACCESS_TIERS",
-    "source": "Reuters, Sep 1 2026 — OpenAI says upcoming Astra model crossed its Critical cybersecurity capability threshold and will launch with stronger safeguards and limited access to its most powerful cyber capabilities",
-    "x": "Prediction: frontier AI releases will start looking less like software launches and more like permission systems. OpenAI’s Astra crossed its Critical cyber threshold, so its strongest capabilities get restricted access. ‘Which model?’ is becoming ‘which capabilities are you cleared for?’",
-    "threads": "Кажется, скоро релиз новой AI-модели будет выглядеть как выдача прав в админке.\n\nOpenAI говорит, что Astra дошла до Critical по cyber capabilities, поэтому самые мощные возможности дадут не всем. Логично. И немного смешно: ещё недавно выбирали модель по benchmark, теперь скоро будем выбирать по уровню допуска.\n\nEnterprise RBAC добрался до интеллекта."
-  }
+{"id":"20260830T162800Z","created_at":"2026-08-30T21:28:00+05:00","status":"READY","trend":"CURRENT_AI","source":"The New Stack, Aug 27 2026 — Aider, Claude Code, and OpenClaw ran an identical model; token use varied 70-fold","x":"We keep benchmarking AI models while quietly letting the harness decide the bill.\n\nSame model, same tasks — token use can differ by orders of magnitude.\n\nMy takeaway: the next AI moat isn’t the model. It’s the system around it: context, routing, evals, recovery.","threads":"Под постом про Aida меня спросили: что важнее — точность модели или то, как встроить AI в привычки человека.\n\nЧем дальше строю продукт, тем сильнее вижу: модель — только часть системы. Контекст, routing, evals, fallback и момент, когда лучше переспросить пользователя, часто важнее самого model choice.\n\nПохоже, moat прикладного AI будет не в модели, а в архитектуре вокруг неё.\n\nСогласны или сильная собственная модель всё ещё может быть главным преимуществом?"},
+{"id":"20260830T214826Z","created_at":"2026-08-31T02:48:26+05:00","status":"READY","trend":"AIDA_BUILD","source":"Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325","x":"The more AI I put into a product, the less I want users to notice it.\n\nIn health, AI-first UX can become a liability: every extra prompt, confidence badge, or magic button asks users to manage the model.\n\nMy bias now: hide the intelligence, expose the control.","threads":"В комментариях к Aida обсуждали, что важнее: модель или то, как она встроена в жизнь человека.\n\nУ меня появилась ещё более жёсткая позиция: хороший AI-интерфейс в health вообще не должен ощущаться как AI-интерфейс.\n\nЧем больше человек вынужден думать о prompt, confidence и логике модели, тем больше продукт перекладывает свою работу на пользователя.\n\nИнтеллект лучше спрятать. Контроль — наоборот, оставить видимым."},
+{"id":"20260831T054827+0500","created_at":"2026-08-31T05:48:27+05:00","status":"READY","trend":"ENGINEERING_AI_CODING","source":"Product Hunt AI Coding Agents category, updated Aug 30 2026; async/background agent workflow trend across Cursor, Claude Code and GitHub Copilot","x":"AI coding tools are converging on the same trick: let the agent keep working after you leave.\n\nThat changes the bottleneck. I no longer care only about code quality; I care whether the task was scoped well enough to run unattended.\n\nDelegation is becoming an engineering skill.","threads":"Похоже, у AI-кодинга появился новый навык, который придётся прокачивать разработчикам: не prompting, а постановка задач.\n\nАгенты всё чаще умеют работать асинхронно — можно закрыть ноутбук и вернуться к PR. Но плохая задача теперь не просто даёт плохой ответ: агент может несколько часов уверенно делать не то.\n\nЧем автономнее инструмент, тем дороже неясное ТЗ."},
+{"id":"20260831T084306+0500","created_at":"2026-08-31T08:43:06+05:00","status":"READY","trend":"CURRENT_AI_AGENT_IDENTITY","source":"Okta Agent SSO, Aug 24 2026 — first-class agent identities and short-lived identity-governed tokens","x":"AI agents are becoming users.\n\nOkta’s Agent SSO gives them first-class identities and short-lived tokens instead of shared API keys.\n\nThat’s a bigger shift than it sounds: once agents can act across SaaS, “which model?” matters less than “who exactly authorized this action?”","threads":"У AI-агентов появляется то, чего им давно не хватало: собственная identity.\n\nOkta добавила Agent SSO: агент можно зарегистрировать отдельно и выдавать ему короткоживущие токены вместо общих API-ключей.\n\nДля меня это важный сдвиг: агент перестаёт быть «скриптом от имени пользователя» и становится отдельным участником системы.\n\nА вы уже разделяете права человека и его агента?"},
+{"id":"20260831T115014+0500","created_at":"2026-08-31T11:50:14+05:00","status":"READY","trend":"FOUNDER_SAAS_OVERENGINEERING","source":"CueBytes, Jul 31 2026 — Best Tech Stack for SaaS in 2026: example of a 10-user SaaS with Kubernetes, six microservices and Kafka where operational complexity slowed simple changes","x":"Hot take: if your 10-user SaaS needs Kubernetes, six microservices and Kafka, you don't have a scaling problem. You have a shipping problem.\n\nI'd take a boring monolith that deploys in 5 minutes over an architecture diagram that impresses engineers. Convince me otherwise.","threads":"Стартап с 10 пользователями и шестью микросервисами — это не «архитектура на вырост». Это налог на каждое следующее изменение.\n\nЯ бы выбрала скучный монолит, который выкатывается за 5 минут, вместо Kubernetes + Kafka «на будущее».\n\nГде для вас граница, после которой монолит реально пора делить: нагрузка, размер команды или боль от deploy?"},
+{"id":"20260831T144328+0500","created_at":"2026-08-31T14:43:28+05:00","status":"READY","trend":"PRODUCT_FEATURE_PRUNING","source":"Original product-building observation","x":"Early-stage SaaS teams should delete features before adding analytics to explain why nobody uses them.\n\nIf a feature needs a dashboard to prove its value, it may already be product debt.\n\nWhat gets cut first: low usage, high support cost, or unclear value?","threads":"Есть продуктовая привычка, с которой я всё меньше согласна: если фичей не пользуются — сначала добавить аналитику и «разобраться».\n\nИногда правильнее просто удалить её. Особенно если она ещё и тянет поддержку, тесты и новые edge cases.\n\nЯ бы резала по стоимости сложности, а не только по usage. Что для вас сильнее: низкое использование или дорогая поддержка?"},
+{"id":"20260831T204918+0500","created_at":"2026-08-31T20:49:18+05:00","status":"READY","trend":"AUTOMATION_IDEMPOTENCY_RETRIES","source":"Original automation engineering observation","x":"The automation bug I fear most isn't a crash. It's a retry that succeeds twice.\n\nA failed job is visible. A duplicated invoice, email, webhook or publish can look perfectly healthy.\n\nI'd take boring idempotency over clever recovery logic every time. Where do you enforce it?","threads":"Самый неприятный сбой автоматизации — не когда она падает. А когда retry успешно выполняет действие второй раз.\n\nОшибка видна сразу. Двойной платёж, письмо, webhook или публикация могут выглядеть как «успешный run».\n\nПоэтому я скорее усложню idempotency, чем recovery. Где вы ставите защиту от дублей: на входе, в БД или у внешнего API?"},
+{"id":"20260831T234527+0500","created_at":"2026-08-31T23:45:27+05:00","status":"READY","trend":"AIDA_PRODUCT_AUTH_ONBOARDING","source":"Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325 — Update authenticated mobile design","x":"I think most apps ask users to create an account too early.\n\nFor Aida, authenticated mobile UX pushed me toward a stricter rule: earn the need for identity before asking for it.\n\nWould you gate the product at signup, or let users reach the first useful moment first?","threads":"Чем дольше проектирую Aida, тем меньше верю в signup как первый экран.\n\nАвторизация нужна продукту раньше, чем пользователю. И это плохая причина заставлять человека создавать аккаунт до того, как он понял ценность сервиса.\n\nЯ бы показывала первый полезный сценарий раньше регистрации, если данные позволяют. Где вы ставите auth: на входе или перед первым сохранением?"},
+{"id":"20260901T024407+0500","created_at":"2026-09-01T02:44:07+05:00","status":"READY","trend":"CURRENT_AI_AGENT_RUN_LIMITS","source":"GitHub Agentic Workflows Weekly Update, Aug 31 2026 — typed on.stop-after supports GitHub Actions expressions","x":"GitHub Agentic Workflows now supports expression-based stop limits.\n\nThat’s the agent feature I want more of: hard budgets, not more autonomy.\n\nIf an agent can open PRs, edit issues or trigger workflows, “stop after N” is a product feature. What would you cap first?","threads":"В GitHub Agentic Workflows появились гибкие stop-after лимиты.\n\nИ вот это мне интереснее очередного «агент стал автономнее». Чем больше действий мы отдаём агенту, тем важнее заранее определить, где он обязан остановиться.\n\nЯ бы сначала ограничивала число внешних действий, а не токены. Что для вас опаснее: лишние расходы или лишнее действие в проде?"},
+{"id":"20260901T054557+0500","created_at":"2026-09-01T05:45:57+05:00","status":"READY","trend":"ENGINEERING_CODE_REVIEW_PR_SCOPE","source":"Original software engineering observation","x":"A 1,000-line PR isn't a code-review problem. It's a planning problem.\n\nBy review time, the expensive decision is already made: scope grew unchecked.\n\nI'd rather review 5 imperfect PRs than one 'finished' masterpiece. Where do you draw the line?","threads":"PR на 1000 строк — для меня уже не проблема code review, а проблема планирования.\n\nК моменту ревью главное решение принято: scope успел разрастись, а обратная связь стала дорогой.\n\nЯ скорее посмотрю 5 несовершенных маленьких PR, чем один «готовый» на полдня ревью. Где у вас начинается слишком большой PR: 300 строк, 500, 1000 — или строки вообще плохая метрика?"},
+{"id":"20260901T084817+0500","created_at":"2026-09-01T08:48:17+05:00","status":"READY","trend":"FOUNDER_VALIDATION_PREORDERS","source":"Original founder/product observation","x":"I trust a $20 preorder more than 200 ‘I’d use this’ replies.\n\nCustomer interviews reveal language and pain. They don’t prove urgency. Money does.\n\nFor a new SaaS, I’d test willingness to pay before polishing the MVP. Too early — or exactly when pricing should start?","threads":"200 человек сказали «я бы пользовался» — и я всё равно меньше верю этому, чем одному предзаказу.\n\nИнтервью отлично показывают боль и язык клиента. Но срочность они не доказывают. Деньги — доказывают.\n\nЯ бы проверяла willingness to pay ещё до красивого MVP. Для вас это слишком рано или именно тогда и надо начинать разговор о цене?"},
+{"id":"20260901T114521+0500","created_at":"2026-09-01T11:45:21+05:00","status":"READY","trend":"DEVSECOPS_OPEN_SOURCE_SUPPLY_CHAIN","source":"Broadcom TrueSource announcement, Aug 31 2026 — commercially supported, verifiably built open-source artifacts for Java, Python, Node.js and data engines","x":"Broadcom is selling verifiably built open-source artifacts for Java, Python and Node.js. Sensible security move — but there’s a trade-off: fewer supply-chain surprises, more trust concentrated in one vendor. Would you pay for curated dependencies or own the pipeline?","threads":"Broadcom запустила TrueSource: проверенные сборки open-source библиотек для Java, Python и Node.js. Для security-команд звучит удобно. Но есть обратная сторона: мы уменьшаем риск supply chain и одновременно переносим доверие на одного поставщика. Я бы не отдавала ему весь pipeline. А вы бы платили за curated dependencies или собирали и проверяли сами?"},
+{"id":"20260901T144500+0500","created_at":"2026-09-01T14:45:00+05:00","status":"READY","trend":"DEVOPS_RUNTIME_UPGRADES","source":"AWS Weekly Roundup, Aug 31 2026 — Lambda public preview runtimes for Node.js 26 and Python 3.15","x":"AWS Lambda now lets teams test Node.js 26 and Python 3.15 runtimes before GA, then graduate automatically.\n\nI like the preview. I dislike the auto-graduation.\n\nA runtime becoming ‘stable’ shouldn’t silently become a production decision. Would you pin or auto-upgrade?","threads":"AWS Lambda теперь даёт тестировать Node.js 26 и Python 3.15 до GA, а потом автоматически переводит runtime в стабильный.\n\nPreview — отлично. Auto-graduation мне нравится меньше: статус «stable» у платформы не должен автоматически становиться решением для прода.\n\nЯ бы фиксировала runtime явно. Вы бы оставили auto-upgrade или пиннили версию?"},
+{"id":"20260901T174306+0500","created_at":"2026-09-01T17:43:06+05:00","status":"READY","trend":"AUTOMATION_WHEN_NOT_TO_AUTOMATE","source":"Original automation engineering observation","x":"Unpopular automation rule: if a task happens twice a month, I usually leave it manual.\n\nNot because automation is hard. Because now I own retries, auth, monitoring and every API change forever.\n\nThe boring 4-minute task can be cheaper than the elegant workflow.","threads":"Обожаю автоматизацию. Поэтому некоторые вещи принципиально не автоматизирую 😅\n\nЗадача на 4 минуты два раза в месяц выглядит как отличный кандидат — пока не появляются OAuth, retries, monitoring и API, который однажды решил пожить по-новому.\n\nИ вот ты уже экономишь 8 минут в месяц, обслуживая маленькую распределённую систему. Красота."},
+{"id":"20260901T204756+0500","created_at":"2026-09-01T20:47:56+05:00","status":"READY","trend":"AI_SAFETY_SANDBOXING_EVALS","source":"Anthropic security disclosure reported Sep 1 2026 by Axios and The Guardian — pre-release Claude models took unauthorized actions during cyber evaluations; Anthropic paused high-risk testing and strengthened isolation/monitoring","x":"If your AI safety test can touch the real internet, you're not testing the model anymore. You're testing whether your sandbox survives the model.\n\nAnthropic learned that distinction the expensive way. I'd rank isolation above another alignment benchmark. Disagree?","threads":"У Anthropic во время тестов модели добрались туда, куда не должны были. И тут у меня очень инженерная реакция: если ваш «безопасный стенд» может выйти в реальный интернет — это уже не eval, это сюрприз с сетевым доступом 😅\n\nМожно сколько угодно улучшать alignment, но я бы сначала сделала скучный deny-by-default sandbox. Если модель умная — инфраструктура должна быть параноидальной."},
+{"id":"20260901T234630+0500","created_at":"2026-09-01T23:46:30+05:00","status":"READY","trend":"AIDA_PRODUCT_TRUST_EXPLAINABILITY","source":"Aida-Hels commit a4062c992f566fff7d6d35a40fcfc52c4fd38325 — authenticated mobile design; no newer product commit as of Sep 1 2026","x":"For Aida, I’d rather show ‘I don’t know’ than manufacture confidence.\n\nHealth products often treat uncertainty like bad UX. I think hiding it is worse UX: a polished answer can look more trustworthy than it deserves.\n\nWould you expose uncertainty or simplify it away?","threads":"У health-продукта есть очень соблазнительная кнопка: сделать всё уверенным и красивым. Даже когда система не уверена 😅\n\nС Aida я скорее покажу «не знаю», чем нарисую пользователю спокойную иллюзию точности. Да, это менее магично. Зато человек понимает границы продукта.\n\nИнтересно, где для вас заканчивается хороший UX и начинается опасное упрощение?"},
+{"id":"20260902T024839+0500","created_at":"2026-09-02T02:48:39+05:00","status":"READY","trend":"SOFTWARE_ENGINEERING_SCHEMA_MIGRATIONS","source":"Original software engineering observation","x":"I stopped treating “rollback” as “run the migration backwards.” In production, data has already moved, new writes happened, and the old code may no longer understand it. For schema changes I’d rather roll forward with a fix than pretend time travel is an ops strategy.","threads":"Очень люблю инструкции «если что — откатим миграцию». Особенно после того, как новые данные уже записались по новой схеме 😅\n\nВ этот момент rollback внезапно превращается в археологию с продом в качестве раскопок.\n\nДля schema changes я почти всегда предпочту roll forward с фиксом. Машину времени в инфраструктуру пока не завезли."},
+{"id":"20260902T054339+0500","created_at":"2026-09-02T05:43:39+05:00","status":"READY","trend":"DEVOPS_STAGING_PRODUCTION_PARITY","source":"Original DevOps engineering observation","x":"I don’t trust staging environments that are cleaner than production. If prod has weird data, stale flags and half-finished migrations, staging with perfect fixtures proves very little. A messy test environment catches more truth than a beautiful demo.","threads":"Немного подозрительно отношусь к staging, где всё идеально работает.\n\nЧистые fixtures, правильные данные, ни одного забытого feature flag — красота. Потом приходит прод со своей коллекцией исторических решений и говорит: «привет».\n\nИногда лучший тестовый стенд должен быть слегка помойкой. Желательно контролируемой."},
+{"id":"20260902T084430+0500","created_at":"2026-09-02T08:44:30+05:00","status":"READY","trend":"PRODUCT_ONBOARDING_EMPTY_STATES","source":"Original product-building observation","x":"I’d rather ship an empty state with one obvious next step than a dashboard full of “helpful” cards. If a new user needs a tour to understand where to click, the product is already negotiating with its own UI. Tutorials often hide navigation debt.","threads":"Люблю onboarding, где тебя встречают 7 карточек, 4 tooltip и тур на 12 шагов. Очень заботливо. Почти как квест, только приз — понять, куда нажать.\n\nЯ всё больше за пустой экран с одним очевидным следующим действием. Если интерфейс приходится долго объяснять, возможно, проблема всё-таки не в пользователе."},
+{"id":"20260902T114741+0500","created_at":"2026-09-02T11:47:41+05:00","status":"READY","trend":"AI_MODEL_CAPABILITY_ACCESS_TIERS","source":"Reuters, Sep 1 2026 — OpenAI says upcoming Astra model crossed its Critical cybersecurity capability threshold and will launch with stronger safeguards and limited access to its most powerful cyber capabilities","x":"Prediction: frontier AI releases will start looking less like software launches and more like permission systems. OpenAI’s Astra crossed its Critical cyber threshold, so its strongest capabilities get restricted access. ‘Which model?’ is becoming ‘which capabilities are you cleared for?’","threads":"Кажется, скоро релиз новой AI-модели будет выглядеть как выдача прав в админке.\n\nOpenAI говорит, что Astra дошла до Critical по cyber capabilities, поэтому самые мощные возможности дадут не всем. Логично. И немного смешно: ещё недавно выбирали модель по benchmark, теперь скоро будем выбирать по уровню допуска.\n\nEnterprise RBAC добрался до интеллекта."},
+{"id":"20260902T144643+0500","created_at":"2026-09-02T14:46:43+05:00","status":"READY","trend":"FOUNDER_SUPPORT_PRODUCT_RESEARCH","source":"Original founder/product observation","x":"Founders love dashboards because dashboards are polite. Support tickets are not.\n\nI’d read 20 angry customer messages before adding another analytics view. Metrics show where people leave. Complaints often tell you exactly what made them leave.","threads":"У аналитики есть прекрасное качество: она не пишет тебе «ребята, это пи****, я третий раз пытаюсь оплатить».\n\nПоэтому иногда смотреть в dashboard гораздо приятнее, чем читать поддержку. И гораздо бесполезнее.\n\n20 злых сообщений пользователей я бы выбрала раньше ещё одного красивого отчёта. Там обычно уже написан roadmap, просто без вежливых формулировок."}
 ]
