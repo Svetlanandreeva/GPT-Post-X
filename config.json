@@ -1,7 +1,8 @@
 {
   "services": ["twitter", "threads"],
   "dry_run": false,
-  "queue_csv_url": "https://docs.google.com/spreadsheets/d/11PBrVIaXUWw00z2cbR5Qgc2wnjqsufVaoncL5eLV9GI/export?format=csv&gid=1570221331",
-  "max_queue_age_hours": 8,
-  "publish_delay_minutes": 5
+  "max_queue_age_hours": 12,
+  "threads_publish_delay_minutes": 5,
+  "twitter_publish_delay_min_minutes": 12,
+  "twitter_publish_delay_max_minutes": 47
 }
